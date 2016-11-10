@@ -1,0 +1,13 @@
+# Trabalho2-CG
+
+Meu Trabalho 2 de CG é um jogo de nave, onde o jogador controla a nave para desviar de objetos até chegar no final da fase.
+
+Esse jogo não tem fim, e sim níveis infinitos, onde a cada nível aumenta a velocidade da nave.
+
+Os objetos são gerados aleatoriamente, porém seguindo uma regra para não ultrapassar os limites do ambiente.
+
+Tecnicamente, a nave não se move para frente nem para trás, apenas para cima, para baixo e para os lados conforme os comandos do jogador.
+
+O que se move são os objetos em direção à nave.
+
+E conforme um objeto passa pela nave, ele será transformado em outro objeto (com outra forma) e apacerá a frente da nave (com uma distância considerável).
