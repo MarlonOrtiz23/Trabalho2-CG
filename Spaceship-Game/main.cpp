@@ -12,7 +12,7 @@ GLfloat obsX, obsY, obsZ, obsX_ini, obsY_ini, obsZ_ini;
 GLfloat fAspect = 2, angle = 90;
 int x_ini,y_ini,bot;
 
-int movZ1 = -1000; // movimento em Z dos objetos (posiÁ„o inicial em Z)
+int movZ1 = -1000; // movimento em Z dos objetos (posi√ß√£o inicial em Z)
 int movZ2 = -1500;
 int movZ3 = -2000;
 int movZ4 = -2500;
@@ -22,8 +22,8 @@ int ran2;
 int ran3;
 int ran4;
 int ran5;
-int tx,ty = 1; // transladaÁ„o da spaceship
-int life = 10;
+int tx,ty = 1; // translada√ß√£o da spaceship
+int life = 100;
 int score = 0;
 int level = 1;
 
@@ -239,22 +239,22 @@ void DefineIluminacao()
 	// Capacidade de brilho do material
 	GLfloat especularidade[4]={1.0,1.0,1.0,1.0};
 	GLint especMaterial = 60;
-	// Habilita o modelo de colorizaÁ„o de Gouraud
+	// Habilita o modelo de coloriza√ß√£o de Gouraud
 	glShadeModel(GL_SMOOTH);
-	// Define a reflet‚ncia do material
+	// Define a reflet√¢ncia do material
 	glMaterialfv(GL_FRONT,GL_SPECULAR, especularidade);
-	// Define a concentraÁ„o do brilho
+	// Define a concentra√ß√£o do brilho
 	glMateriali(GL_FRONT,GL_SHININESS,especMaterial);
 	// Ativa o uso da luz ambiente
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbiente);
-	// Define os par‚metros da luz de n˙mero 0
+	// Define os par√¢metros da luz de n√∫mero 0
 	glLightfv(GL_LIGHT0, GL_AMBIENT, luzAmbiente);
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusa );
 	glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecular );
 	glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuz );
 	//Desabilita iluminacao para desenhar a esfera
 	glDisable(GL_LIGHTING);
-	//Desenha esfera na posiÁ„o da fonte de luz
+	//Desenha esfera na posi√ß√£o da fonte de luz
 	glPushMatrix();
 	glTranslatef(posicaoLuz[0], posicaoLuz[1], movZ1+25);
 	glColor3f(1.0f, 1.0f, 1.0f);
@@ -265,14 +265,14 @@ void DefineIluminacao()
 
 void Inicializa (void)
 {
-	// Especifica que a cor de fundo da janela ser· preta
+	// Especifica que a cor de fundo da janela ser√° preta
 	//glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	DefineIluminacao();
-	// Habilita a definiÁ„o da cor do material a partir da cor corrente
+	// Habilita a defini√ß√£o da cor do material a partir da cor corrente
 	glEnable(GL_COLOR_MATERIAL);
-	//Habilita o uso de iluminaÁ„o
+	//Habilita o uso de ilumina√ß√£o
 	glEnable(GL_LIGHTING);
-	// Habilita a luz de n˙mero 0
+	// Habilita a luz de n√∫mero 0
 	glEnable(GL_LIGHT0);
 	// Habilita o depth-buffering
 	glEnable(GL_DEPTH_TEST);
@@ -302,7 +302,7 @@ void GerenciaMouse(int button, int state, int x, int y)
 {
 	if(state==GLUT_DOWN)
 	{
-		// Salva os par‚metros atuais
+		// Salva os par√¢metros atuais
 		x_ini = x;
 		y_ini = y;
 		obsX_ini = obsX;
@@ -436,7 +436,7 @@ void gameover(){
 }
 
 void colisao(){ // spaceship: x = 0,-3,3; y= 0,0,0; z=0,3,3;
-    int tzi = 80; // posiÁ„o Z da spaceship  // tx = posiÁ„o X
+    int tzi = 80; // posi√ß√£o Z da spaceship  // tx = posi√ß√£o X
     if(tzi-5 < movZ1 && movZ1 < tzi+5){
             if(tx-5 < ran1 && ran1 < tx+5) life -= 5;
     }
@@ -459,7 +459,7 @@ void TimerFunction( int value ){
     colisao();
     atualizaVariaveis();
     glutPostRedisplay();          //Atualiza a tela
-    glutTimerFunc(33, TimerFunction, 1); //Faz a nova chamada para a funÁ„o;
+    glutTimerFunc(33, TimerFunction, 1); //Faz a nova chamada para a fun√ß√£o;
 }
 //MENU
 /*
