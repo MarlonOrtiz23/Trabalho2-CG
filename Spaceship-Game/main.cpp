@@ -2,6 +2,8 @@
 #include <GL/glut.h>
 #include <stdio.h>
 #include <ctime>
+#include <windows.h>
+#include <mmsystem.h>
 #include <sstream>
 #include <string>
 #include <stdlib.h>     /* srand, rand */
@@ -26,7 +28,6 @@ int tx,ty = 1; // transladação da spaceship
 int life = 100;
 int score = 0;
 int level = 1;
-
 
 GLfloat luzAmbiente[4]={0.5,0.5,0.5,1.0};
 GLfloat luzDifusa[4]={0.5,0.5,0.5,1.0};		 // "cor"
@@ -438,19 +439,34 @@ void gameover(){
 void colisao(){ // spaceship: x = 0,-3,3; y= 0,0,0; z=0,3,3;
     int tzi = 80; // posição Z da spaceship  // tx = posição X
     if(tzi-5 < movZ1 && movZ1 < tzi+5){
-            if(tx-5 < ran1 && ran1 < tx+5) life -= 5;
+            if(tx-5 < ran1 && ran1 < tx+5){
+                    life -= 5;
+                    PlaySound("crash.wav",NULL,SND_ASYNC|SND_FILENAME);
+            }
     }
     if(tzi-5 < movZ2 && movZ2 < tzi+5){
-            if(tx-5 < ran2 && ran2 < tx+5) life -= 5;
+            if(tx-5 < ran2 && ran2 < tx+5){
+                    life -= 5;
+                    PlaySound("crash.wav",NULL,SND_ASYNC|SND_FILENAME);
+            }
     }
     if(tzi-5 < movZ3 && movZ3 < tzi+5){
-            if(tx-5 < ran3 && ran3 < tx+5) life -= 5;
+            if(tx-5 < ran3 && ran3 < tx+5){
+                    life -= 5;
+                    PlaySound("crash.wav",NULL,SND_ASYNC|SND_FILENAME);
+            }
     }
     if(tzi-5 < movZ4 && movZ4 < tzi+5){
-            if(tx-5 < ran4 && ran4 < tx+5) life -= 5;
+            if(tx-5 < ran4 && ran4 < tx+5){
+                    life -= 5;
+                    PlaySound("crash.wav",NULL,SND_ASYNC|SND_FILENAME);
+            }
     }
     if(tzi-5 < movZ5 && movZ5 < tzi+5){
-            if(tx-5 < ran5 && ran5 < tx+5) life -= 5;
+            if(tx-5 < ran5 && ran5 < tx+5){
+                    life -= 5;
+                    PlaySound("crash.wav",NULL,SND_ASYNC|SND_FILENAME);
+            }
     }
     if(life <= 0) gameover();
 }
@@ -505,6 +521,7 @@ int main(void)
     ran3 = rand() % 20 - 10;
     ran4 = rand() % 20 - 10;
     ran5 = rand() % 20 - 10;
+    PlaySound("sound.wav",NULL,SND_ASYNC|SND_FILENAME);
 	int argc = 0;
 	char *argv[] = { (char *)"gl", 0 };
 	glEnable(GL_BLEND);
@@ -538,25 +555,3 @@ int main(void)
 
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
